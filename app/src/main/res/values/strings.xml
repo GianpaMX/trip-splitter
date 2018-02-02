@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Trip Splitter</string>
+    <plurals name="trip_list_item_box_bottom_line">
+        <item quantity="one">%1$s for %2$d day</item>
+        <item quantity="other">%1$s for %2$d days</item>
+    </plurals>
+</resources>
