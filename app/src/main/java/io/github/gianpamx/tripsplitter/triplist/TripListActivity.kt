@@ -7,6 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager.VERTICAL
 import dagger.android.AndroidInjection
 import io.github.gianpamx.tripsplitter.R
+import io.github.gianpamx.tripsplitter.trip.TripActivity
 import kotlinx.android.synthetic.main.trip_list_activity.*
 import javax.inject.Inject
 
@@ -24,7 +25,7 @@ class TripListActivity : AppCompatActivity() {
 
         adapter = TripListAdapter(this)
         adapter.onItemSelected = {
-
+            startActivity(TripActivity.newIntent(this, it.id))
         }
 
         configureRecyclerView()
@@ -39,5 +40,5 @@ class TripListActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(EqualGapItemDecoration(2, resources.getDimensionPixelSize(R.dimen.trip_list_grid_spacing)));
     }
 
-    val tripListObserver = Observer<List<TripListItem>> { it?.let { adapter.updateTrips(it) } }
+    private val tripListObserver = Observer<List<TripListItem>> { it?.let { adapter.updateTrips(it) } }
 }

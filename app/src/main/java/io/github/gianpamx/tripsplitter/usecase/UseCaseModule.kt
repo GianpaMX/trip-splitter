@@ -7,4 +7,7 @@ import dagger.Provides
 class UseCaseModule {
     @Provides
     fun provideGetAllTripsUseCase() = GetAllTripsUseCase()
+
+    @Provides
+    fun provideGetTripUseCase() = GetTripUseCase()
 }
